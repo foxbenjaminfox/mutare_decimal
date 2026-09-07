@@ -85,8 +85,10 @@ defmodule Mutare.Decimal.LimitsDropTest do
       # Bare-import resolution reflects on the module's real exports, and `Decimal.parse/2`
       # arrived in Decimal 2.4 — against an older Decimal (the CI minimum is 2.2) the bare
       # call is not a Decimal call at all, so it rightly draws no mutant.
+      # (`Code.ensure_loaded?/1` first: `function_exported?/3` reads the loaded module and
+      # nothing guarantees a test dependency's module is loaded before this test runs.)
       expected =
-        if function_exported?(Decimal, :parse, 2),
+        if Code.ensure_loaded?(Decimal) and function_exported?(Decimal, :parse, 2),
           do: [{"parse(input, opts)", "parse(input)"}],
           else: []
 
