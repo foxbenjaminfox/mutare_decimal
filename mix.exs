@@ -10,7 +10,7 @@ defmodule Mutare.Decimal.MixProject do
       version: @version,
       elixir: "~> 1.18",
       start_permanent: Mix.env() == :prod,
-      description: "Mutation-testing mutators for Decimal — a Mutare plugin.",
+      description: "Mutare mutators for Decimal",
       package: package(),
       lockfile: System.get_env("MIX_LOCKFILE", "mix.lock"),
       deps: deps(),
@@ -26,7 +26,7 @@ defmodule Mutare.Decimal.MixProject do
 
   defp deps do
     [
-      {:mutare, path: "../mutare"},
+      {:mutare, "~> 0.1"},
       # Decimal backs only this package's own tests — the mutators match calls by
       # name, never call into Decimal. The requirement is env-overridable so CI can
       # sweep the declared range's major lines (see ci.yml); local runs fall back
@@ -82,10 +82,7 @@ defmodule Mutare.Decimal.MixProject do
     ]
   end
 
-  # Hex package metadata. The `mutare` core is still a `path:` dependency, so an
-  # actual `mix hex.publish` stays blocked until Mutare itself ships to Hex — this
-  # section keeps the manifest ready for that day. Only runtime and doc artifacts
-  # ship — never the test suite.
+  # Hex package metadata. Only runtime and doc artifacts ship — never the test suite.
   defp package do
     [
       licenses: ["MIT"],

@@ -5,7 +5,9 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## 0.1.0 - Unreleased
+## [Unreleased]
+
+## [0.1.0] - 2026-09-07
 
 Initial release.
 
@@ -46,3 +48,6 @@ Initial release.
 - `Mutare.Decimal.all/0` for splicing all families into a `:mutators` list.
 
 Supports Decimal `>= 2.2.0 and < 4.0.0`.
+
+[Unreleased]: https://github.com/foxbenjaminfox/mutare_decimal/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/foxbenjaminfox/mutare_decimal/releases/tag/v0.1.0

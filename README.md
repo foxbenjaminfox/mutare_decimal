@@ -103,9 +103,6 @@ other — every call the mutators *emit* exists across the whole range.
 
 ## Development
 
-The plugin is developed against a sibling checkout of Mutare
-(`{:mutare, path: "../mutare"}`).
-
 ```
 mix deps.get
 mix test          # unit diffs + cross-family ownership + variant-label contract
